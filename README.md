@@ -1,3 +1,15 @@
-
-<object data="./CV_resume__2025_1.pdf" width="1000" height="1000" type='application/pdf'/>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display PDF on GitHub Pages</title>
+</head>
+<body>
+  <h1>My PDF Document</h1>
+  <p>View the PDF below or <a href="./CV_resume__2025_1.pdf" target="_blank">open it in a new tab</a>.</p>
+  <iframe src="/assets/pdfs/document.pdf" width="100%" height="800px" style="border: none;">
+    <p>Your browser does not support iframes. <a href="./CV_resume__2025_1.pdf">Download the PDF</a>.</p>
+  </iframe>
+</body>
+</html>
