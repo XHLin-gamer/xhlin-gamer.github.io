@@ -53,7 +53,7 @@
     <h2>Explore My Work</h2>
     <ul>
       <li><a href="https://github.com/XHLin-gamer">My GitHub Repositories</a></li>
-      <li><a href="https://xhlin-gamer.github.io">My CV</a></li>
+      <li><a href="https://github.com/XHLin-gamer/xhlin-gamer.github.io/blob/master/CV_resume__2025_1.pdf">My CV</a></li>
       <li><a href="mailto:xhaughearl@email.com">Contact Me</a></li>
     </ul>
     <h2>About Me</h2>
