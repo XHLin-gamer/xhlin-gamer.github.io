@@ -1,14 +1,9 @@
-# XHLin-gamer's GitHub Page
 
-Below is the HTML content for my GitHub Page, embedded here for display purposes.
-
-```html
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XHLin-gamer's GitHub Page</title>
+  <title>XHLin's GitHub Page</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -50,7 +45,7 @@ Below is the HTML content for my GitHub Page, embedded here for display purposes
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to XHLin-gamer's GitHub Page</h1>
+    <h1>Welcome to XHLin's GitHub Page</h1>
     <div class="bio">
       <p>Hi, I'm XHLin-gamer! I'm passionate about coding, gaming, and building cool projects.</p>
       <p>This is my personal space where I share my work, experiments, and open-source contributions.</p>
@@ -58,13 +53,11 @@ Below is the HTML content for my GitHub Page, embedded here for display purposes
     <h2>Explore My Work</h2>
     <ul>
       <li><a href="https://github.com/XHLin-gamer">My GitHub Repositories</a></li>
-      <li><a href="https://xhlin-gamer.github.io">My Projects</a></li>
-      <li><a href="mailto:example@email.com">Contact Me</a></li>
+      <li><a href="https://xhlin-gamer.github.io">My CV</a></li>
+      <li><a href="mailto:xhaughearl@email.com">Contact Me</a></li>
     </ul>
     <h2>About Me</h2>
     <p>I'm a developer who loves creating games and tools. Check out my repositories to see what I've been working on!</p>
   </div>
 </body>
 </html>
-
-```
