@@ -1,63 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XHLin-gamer's GitHub Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal GitHub homepage of XH Lin - ML researcher and AI enthusiast." />
+  <meta name="keywords" content="XH Lin, Machine Learning, AI, GitHub, Projects, Portfolio" />
+  <title>XH Lin | AI & ML Projects</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
       line-height: 1.6;
-      color: #24292e;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #f6f8fa;
     }
+
+    header {
+      background: #24292e;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
     h1, h2 {
-      border-bottom: 1px solid #eaecef;
-      padding-bottom: 0.3em;
+      color: #24292e;
     }
+
+    .section {
+      margin-bottom: 2.5rem;
+    }
+
+    .projects ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .projects li {
+      background: white;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-left: 4px solid #0366d6;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
     a {
       color: #0366d6;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
-    .container {
-      background-color: #fff;
-      padding: 20px;
-      border: 1px solid #e1e4e8;
-      border-radius: 6px;
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
     }
-    .bio {
-      margin-bottom: 20px;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin: 10px 0;
+
+    .skills span {
+      display: inline-block;
+      background: #0366d6;
+      color: white;
+      padding: 0.3rem 0.7rem;
+      margin: 0.3rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>XH Lin</h1>
+    <p>Machine Learning Researcher | AI Developer | Science Tokyo</p>
+  </header>
+
   <div class="container">
-    <h1>Welcome to XHLin-gamer's GitHub Page</h1>
-    <div class="bio">
-      <p>Hi, I'm XHLin-gamer! I'm passionate about coding, gaming, and building cool projects.</p>
-      <p>This is my personal space where I share my work, experiments, and open-source contributions.</p>
-    </div>
-    <h2>Explore My Work</h2>
-    <ul>
-      <li><a href="https://github.com/XHLin-gamer">My GitHub Repositories</a></li>
-      <li><a href="https://xhlin-gamer.github.io">My Projects</a></li>
-      <li><a href="mailto:example@email.com">Contact Me</a></li>
-    </ul>
-    <h2>About Me</h2>
-    <p>I'm a developer who loves creating games and tools. Check out my repositories to see what I've been working on!</p>
+    <section class="section about">
+      <h2>About Me</h2>
+      <p>
+        I'm a graduate student at Tokyo Science University researching AI, particularly in areas such as LLM watermarking and human motion prediction. 
+        I'm passionate about building practical and trustworthy machine learning systems. I'm currently also working part-time as a translator and orientation assistant at the Tokyo International Exchange Center under JASSO(独立行政法人日本学生支援機構).
+      </p>
+    </section>
+
+    <section class="section projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <!-- <img src="https://via.placeholder.com/800x400.png?text=Project+Image" alt="Project preview" style="width:100%; max-height:200px; object-fit:cover; border-radius:8px; margin-bottom:10px;"> -->
+          <strong>LLM Watermark Detection</strong><br />
+          Developing a robust detection system for watermarks in large language model. <br />
+          <a href="https://github.com/xhaughearl/code_acrostic" target="_blank">View on GitHub</a>
+        </li>
+        <li>
+          <strong>Human Motion Prediction</strong><br />
+          Predicting human actions with unleashing the Haar Transform.<br />
+          <a href="https://github.com/xhaughearl/HaarMoDic" target="_blank">View on GitHub</a>
+        </li>
+        <li>
+          <strong>Game Mods and Simulations</strong><br />
+          Hobby projects involving C++ and Python for game logic and visualization.<br />
+          <a href="https://github.com/XHLin-gamer/RT_in_one_weekend_with_taichi" target="_blank">View More</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section skills">
+      <h2>Skills</h2>
+      <div>
+        <span>Python</span>
+        <span>C++</span>
+        <span>PyTorch</span>
+        <span>Git</span>
+        <span>Deep Learning</span>
+        <span>Natural Language Processing</span>
+        <span>Computer Graphics</span>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <h2>Contact</h2>
+      <p>
+        📫 Email: <a href="mailto:xhaughearl@gmail.com">xhaughearl@gmail.com</a><br />
+        <!-- 💼 LinkedIn: <a href="https://www.linkedin.com/in/your-profile/" target="_blank">linkedin.com/in/your-profile</a><br /> -->
+        🧠 GitHub (Research): <a href="https://github.com/xhaughearl" target="_blank">xhaughearl</a><br />
+      </p>
+    </section>
   </div>
+
+  <footer>
+    © 2025 XH Lin. Built with 💻 GitHub Pages.
+  </footer>
 </body>
 </html>
