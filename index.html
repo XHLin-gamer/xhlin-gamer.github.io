@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Personal GitHub homepage of XH Lin - ML researcher and AI enthusiast." />
-  <meta name="keywords" content="XH Lin, Machine Learning, AI, GitHub, Projects, Portfolio" />
+  <meta name="description" content="Personal GitHub homepage of Lin - ML researcher and AI enthusiast." />
+  <meta name="keywords" content="Li Lin, Machine Learning, AI, GitHub, Projects, Portfolio" />
   <title>Li Lin | 林立</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -22,13 +22,13 @@
     }
 
     :root {
-      --primary-color: #00A1A7; /* Teal from colordic.org */
-      --secondary-color: #1F2A44; /* Dark slate for text */
-      --background-color: #F9FAFB; /* Soft off-white */
+      --primary-color: #00A1A7;
+      --secondary-color: #1F2A44;
+      --background-color: #F9FAFB;
       --card-background: #FFFFFF;
-      --footer-background: #E5E7EB; /* Light gray */
-      --link-hover: #4DB8C0; /* Lighter teal for hover */
-      --highlight-background: #E6F3F4; /* Light teal for Challenge card */
+      --footer-background: #E5E7EB;
+      --link-hover: #4DB8C0;
+      --highlight-background: #E6F3F4;
     }
 
     body {
@@ -39,7 +39,6 @@
       line-height: 1.7;
     }
 
-    /* Navigation Bar */
     nav {
       background: linear-gradient(90deg, var(--primary-color), var(--link-hover));
       padding: 1rem 2rem;
@@ -73,7 +72,7 @@
       background: var(--card-background);
       padding: 2rem;
       text-align: center;
-      border-bottom: 2px solid var(--primary-color);
+      border-bottom: 2px solidbour: 2px solid var(--primary-color);
     }
 
     header h1 {
@@ -113,10 +112,9 @@
       margin-bottom: 3.5rem;
     }
 
-    /* Projects Section */
     .projects .project-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr; /* Left: 2x2 grid, Right: Challenge card */
+      grid-template-columns: 2fr 1fr;
       gap: 2rem;
     }
 
@@ -168,7 +166,6 @@
       text-decoration: underline;
     }
 
-    /* Challenge for You Card */
     .challenge-card {
       background: linear-gradient(180deg, var(--card-background), var(--highlight-background));
       padding: 2.5rem;
@@ -195,6 +192,7 @@
       border: 2px solid var(--primary-color);
       border-radius: 8px;
       margin-bottom: 1.5rem;
+      cursor: pointer;
     }
 
     .challenge-card strong {
@@ -207,7 +205,6 @@
       flex: 1;
     }
 
-    /* Skills Section */
     .skills .skill-grid {
       display: flex;
       flex-wrap: wrap;
@@ -227,7 +224,6 @@
       background: var(--link-hover);
     }
 
-    /* CV Button */
     .cv-button {
       display: inline-block;
       padding: 0.8rem 2rem;
@@ -246,7 +242,6 @@
       text-decoration: none;
     }
 
-    /* Footer */
     footer {
       background: var(--footer-background);
       padding: 1.5rem;
@@ -256,7 +251,6 @@
       border-top: 1px solid var(--primary-color);
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
@@ -291,15 +285,20 @@
       }
     }
 
-    /* Accessibility */
     a:focus, .cv-button:focus, .challenge-card:focus {
       outline: 2px solid var(--primary-color);
       outline-offset: 2px;
     }
+
+    .modal-img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+    }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
   <nav role="navigation" aria-label="Main navigation">
     <ul>
       <li><a href="#about">About</a></li>
@@ -363,7 +362,7 @@
           </div>
         </div>
         <div class="challenge-card" role="article" aria-label="Featured Challenge Project" tabindex="0" data-aos="fade-up" data-aos-delay="400">
-          <img src="assets/images/science tokyo.jpg" alt="Game Development Preview" class="project-img" loading="lazy">
+          <img src="assets/images/science tokyo.jpg" alt="Game Development Preview" class="project-img" loading="lazy" data-bs-toggle="modal" data-bs-target="#imageModal">
           <div>
             <strong>Challenge for You :)</strong><br />
             Please try to guess what is the information hide behind this image.<br />
@@ -371,6 +370,21 @@
         </div>
       </div>
     </section>
+
+    <!-- Modal for full-size image -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="imageModalLabel">Challenge Image</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="assets/images/science tokyo.jpg" alt="Full-size Challenge Image" class="modal-img">
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section id="skills" class="section skills" role="region" aria-label="Skills">
       <h2>Skills</h2>
