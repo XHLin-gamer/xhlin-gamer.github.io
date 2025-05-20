@@ -6,146 +6,429 @@
   <meta name="description" content="Personal GitHub homepage of XH Lin - ML researcher and AI enthusiast." />
   <meta name="keywords" content="XH Lin, Machine Learning, AI, GitHub, Projects, Portfolio" />
   <title>XH Lin | AI & ML Projects</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- AOS for animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #00A1A7; /* Teal from colordic.org */
+      --secondary-color: #1F2A44; /* Dark slate for text */
+      --background-color: #F9FAFB; /* Soft off-white */
+      --card-background: #FFFFFF;
+      --footer-background: #E5E7EB; /* Light gray */
+      --link-hover: #4DB8C0; /* Lighter teal for hover */
+      --highlight-background: #E6F3F4; /* Light teal for Challenge card */
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Inter', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background-color);
+      color: var(--secondary-color);
+      line-height: 1.7;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: linear-gradient(90deg, var(--primary-color), var(--link-hover));
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--card-background);
     }
 
     header {
-      background: #24292e;
-      color: white;
-      padding: 1rem 2rem;
+      background: var(--card-background);
+      padding: 2rem;
       text-align: center;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #6B7280;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: auto;
-      padding: 2rem;
+      padding: 3.5rem 2rem;
     }
 
-    h1, h2 {
-      color: #24292e;
+    h2 {
+      color: var(--secondary-color);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+      border-radius: 4px;
+      position: relative;
+      transition: border-color 0.3s ease;
+    }
+
+    h2:hover {
+      border-color: var(--link-hover);
     }
 
     .section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 3.5rem;
     }
 
-    .projects ul {
-      list-style: none;
-      padding-left: 0;
+    /* Projects Section */
+    .projects .project-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr; /* Left: 2x2 grid, Right: Challenge card */
+      gap: 2rem;
     }
 
-    .projects li {
-      background: white;
+    .projects .small-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+      grid-template-rows: auto auto;
+      gap: 2rem;
+    }
+
+    .projects .project-card {
+      background: var(--card-background);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .projects .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
       margin-bottom: 1rem;
-      padding: 1rem;
-      border-left: 4px solid #0366d6;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
     }
 
-    a {
-      color: #0366d6;
-      text-decoration: none;
+    .project-img:hover {
+      transform: scale(1.03);
     }
 
-    a:hover {
+    .project-card a {
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-right: 1rem;
+    }
+
+    .project-card a:hover {
+      color: var(--link-hover);
       text-decoration: underline;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #777;
+    /* Challenge for You Card */
+    .challenge-card {
+      background: linear-gradient(180deg, var(--card-background), var(--highlight-background));
+      padding: 2.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      height: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .challenge-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 10px var(--primary-color);
+    }
+
+    .challenge-card .project-img {
+      width: 100%;
+      max-height: 600px;
+      height: auto;
+      object-fit: cover;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .challenge-card strong {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .challenge-card div {
+      flex: 1;
+    }
+
+    /* Skills Section */
+    .skills .skill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
     .skills span {
-      display: inline-block;
-      background: #0366d6;
+      background: var(--primary-color);
       color: white;
-      padding: 0.3rem 0.7rem;
-      margin: 0.3rem;
-      border-radius: 12px;
-      font-size: 0.9rem;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+    }
+
+    .skills span:hover {
+      background: var(--link-hover);
+    }
+
+    /* CV Button */
+    .cv-button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      text-align: center;
+    }
+
+    .cv-button:hover {
+      background-color: var(--link-hover);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer-background);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #6B7280;
+      border-top: 1px solid var(--primary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .projects .project-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .projects .small-cards {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+
+      .project-img {
+        height: 200px;
+      }
+
+      .challenge-card .project-img {
+        max-height: 500px;
+        height: auto;
+      }
+
+      .challenge-card {
+        padding: 1.5rem;
+      }
+
+      .cv-button {
+        width: 100%;
+      }
+    }
+
+    /* Accessibility */
+    a:focus, .cv-button:focus, .challenge-card:focus {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
     }
   </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <nav role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
-    <h1>XH Lin</h1>
+    <h1>Li Lin</h1>
     <p>Machine Learning Researcher | AI Developer | Science Tokyo</p>
   </header>
 
   <div class="container">
-    <section class="section about">
+    <section id="about" class="section about" role="region" aria-label="About Me">
       <h2>About Me</h2>
       <p>
-        I'm a graduate student at Tokyo Science University researching AI, particularly in areas such as LLM watermarking and human motion prediction. 
-        I'm passionate about building practical and trustworthy machine learning systems. I'm currently also working part-time as a translator and orientation assistant at the Tokyo International Exchange Center under JASSO(独立行政法人日本学生支援機構).
+        Hi! I'm a graduate student at <a href="https://www.isct.ac.jp/ja" target="_blank">Science Tokyo</a> researching AI, particularly in areas such as LLM watermarking and human motion prediction. 
+        I'm passionate about building practical and trustworthy machine learning systems. I'm currently also working part-time as a translator and orientation assistant at the Tokyo International Exchange Center under JASSO(日本学生支援機構).
       </p>
     </section>
 
-    <section class="section projects">
+    <section id="projects" class="section projects" role="region" aria-label="Pinned Projects">
       <h2>Pinned Projects</h2>
-      <ul>
-        <li>
-          <img src="assets\images\watermark.png" alt="Project preview">
-          <strong>LLM Watermark Detection</strong><br />
-          Developing a robust detection system for watermarks in large language model. <br />
-          <a href="https://github.com/xhaughearl/code_acrostic" target="_blank">View on GitHub</a>
-        </li>
-        <li>
-          <img src="assets\images\MR_Haar.jpg" alt="Project preview">
-          <strong>Human Motion Prediction</strong><br />
-          Predicting human actions with unleashing the Haar Transform.<br />
-          <a href="https://github.com/xhaughearl/HaarMoDic" target="_blank">View on GitHub</a>
-        </li>
-        <li>
-          <img src="assets\images\rt.png" alt="Project preview">
-          <strong>CG and Simulations</strong><br />
-          Hobby projects involving C++ and Python for game logic and visualization.<br />
-          <a href="https://github.com/XHLin-gamer/RT_in_one_weekend_with_taichi" target="_blank">View More</a>
-        </li>
-        <li>
-          <img src="assets\images\kakuyomub.png" alt="Project preview"><br />
-          <strong>Tools and Scripts</strong><br />
-          Convert Kakuyomu articles to Epub file.<br />
-          <a href="https://github.com/XHLin-gamer/RT_in_one_weekend_with_taichi" target="_blank">View More</a>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section skills">
-      <h2>Skills</h2>
-      <div>
-        <span>Python</span>
-        <span>C++</span>
-        <span>PyTorch</span>
-        <span>Git</span>
-        <span>Deep Learning</span>
-        <span>Natural Language Processing</span>
-        <span>Computer Graphics</span>
+      <div class="project-grid">
+        <div class="small-cards">
+          <div class="project-card" role="article" data-aos="fade-up">
+            <img src="assets/images/watermark.png" alt="LLM Watermark Detection Preview" class="project-img" loading="lazy">
+            <div>
+              <strong>LLM Watermark Detection</strong><br />
+              Developing robust detection system for watermarks in large language models.<br />
+              <a href="https://github.com/xhaughearl/code_acrostic" target="_blank"><i class="bi bi-github"></i> View on GitHub</a>
+            </div>
+          </div>
+          <div class="project-card" role="article" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/images/MR_Haar.jpg" alt="Human Motion Prediction Preview" class="project-img" loading="lazy">
+            <div>
+              <strong>Human Motion Prediction</strong><br />
+              Predicting human actions with unleashing the Haar Transform.<br />
+              <a href="https://github.com/xhaughearl/HaarMoDic" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+              <a href="https://arxiv.org/abs/2505.12631" target="_blank"><i class="bi bi-book"></i> arXiv</a>
+            </div>
+          </div>
+          <div class="project-card" role="article" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/images/rt.png" alt="CG and Simulations Preview" class="project-img" loading="lazy">
+            <div>
+              <strong>CG and Simulations</strong><br />
+              Hobby projects involving C++ and Python for game logic and visualization.<br />
+              <a href="https://github.com/XHLin-gamer/RT_in_one_weekend_with_taichi" target="_blank"><i class="bi bi-github"></i> View More</a>
+            </div>
+          </div>
+          <div class="project-card" role="article" data-aos="fade-up" data-aos-delay="300">
+            <img src="assets/images/kakuyomub.png" alt="Tools and Scripts Preview" class="project-img" loading="lazy">
+            <div>
+              <strong>Tools and Scripts</strong><br />
+              Convert Kakuyomu articles to Epub file.<br />
+              <a href="https://github.com/XHLin-gamer/RT_in_one_weekend_with_taichi" target="_blank"><i class="bi bi-github"></i> View More</a>
+            </div>
+          </div>
+        </div>
+        <div class="challenge-card" role="article" aria-label="Featured Challenge Project" tabindex="0" data-aos="fade-up" data-aos-delay="400">
+          <img src="assets/images/science tokyo.jpg" alt="Game Development Preview" class="project-img" loading="lazy">
+          <div>
+            <strong>Challenge for You :)</strong><br />
+            Please try to guess what is the information hide behind this image.<br />
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section contact">
+    <section id="skills" class="section skills" role="region" aria-label="Skills">
+      <h2>Skills</h2>
+      <div class="skill-grid">
+        <span>Python (Advanced)</span>
+        <span>C/C++/C# (Intermediate)</span>
+        <span>Matlab (Intermediate)</span>
+        <span>PyTorch</span>
+        <span>OpenCV</span>
+        <span>Pandas</span>
+        <span>Keras</span>
+        <span>Scikit-learn</span>
+        <span>OpenACC</span>
+        <span>CUDA</span>
+        <span>Taichi</span>
+        <span>PySpark</span>
+        <span>Flask</span>
+        <span>HTML5</span>
+        <span>Vue</span>
+        <span>LaTeX</span>
+        <span>WSL</span>
+        <span>SSH</span>
+        <span>Git</span>
+        <span>Unity</span>
+        <span>Photoshop</span>
+        <span>Premiere Pro</span>
+        <span>After Effects</span>
+        <span>Office</span>
+        <span>English (TOEFL 103/120)</span>
+        <span>Japanese (JLPT N1 177/180)</span>
+      </div>
+    </section>
+
+    <section id="resume" class="section resume" role="region" aria-label="Resume">
+      <h2>Resume</h2>
+      <p data-aos="fade-up">
+        Explore my detailed CV to learn more about my academic background, research experience, and professional skills.
+      </p>
+      <a href="assets/docs/CV_resume__2025_1.pdf" target="_blank" class="cv-button" data-aos="fade-up" data-aos-delay="100">Download My CV</a>
+    </section>
+
+    <section id="contact" class="section contact" role="region" aria-label="Contact">
       <h2>Contact</h2>
       <p>
         📫 Email: <a href="mailto:xhaughearl@gmail.com">xhaughearl@gmail.com</a><br />
-        <!-- 💼 LinkedIn: <a href="https://www.linkedin.com/in/your-profile/" target="_blank">linkedin.com/in/your-profile</a><br /> -->
         🧠 GitHub (Research): <a href="https://github.com/xhaughearl" target="_blank">xhaughearl</a><br />
+        🧠 GitHub (Projects): <a href="https://github.com/XHLin-gamer" target="_blank">XHLin-gamer</a>
       </p>
     </section>
   </div>
 
   <footer>
-    © 2025 XH Lin. Built with 💻 GitHub Pages.
+    © 2025 Li Lin. Built with 💻 GitHub Pages.
   </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 600
+    });
+  </script>
 </body>
 </html>
