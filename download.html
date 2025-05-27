@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download Assets</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        .download-list { list-style: none; padding: 0; }
+        .download-list li { margin: 0.5em 0; }
+        button { padding: 0.5em 1em; }
+    </style>
+</head>
+<body>
+    <h1>Download Assets</h1>
+    <ul class="download-list" id="assetList"></ul>
+
+    <script>
+        // List your asset files here
+        const assets = [
+            "assets\docs\CV_resume__2025_1.pdf",
+            "assets\docs\final presentation.pptx"
+            // Add more files as needed
+        ];
+
+        const assetList = document.getElementById('assetList');
+
+        assets.forEach(asset => {
+            const fileName = asset.split('/').pop();
+            const li = document.createElement('li');
+            const btn = document.createElement('button');
+            btn.textContent = `Download ${fileName}`;
+            btn.onclick = () => {
+                const a = document.createElement('a');
+                a.href = asset;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+            li.appendChild(btn);
+            assetList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
