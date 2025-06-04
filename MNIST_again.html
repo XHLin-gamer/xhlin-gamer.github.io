@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What MNIST Taught Me About Deep Learning</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      line-height: 1.6;
+      color: #333;
+      background: #fffefc;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    th {
+      background-color: #eee;
+    }
+    code {
+      background-color: #f3f3f3;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Look back at MNIST from 2025</h1>
+
+  <p>When I first got into deep learning, MNIST was everywhere. A tiny dataset of grayscale digits, it seemed like every tutorial, blog, or lecture started with it. I’ll admit, at first I thought it was kind of a toy problem.</p>
+
+  <p>But over time, I found myself going back to it more than once. And each time, I picked up something new, not just about MNIST, but about the tools and habits that actually matter when building machine learning models. With that tools, it is possible to push the accuracy of MNIST to 99.54%</p>
+
+  <p>This post is a reflection on that. It’s about how working on a small, humble dataset helped me understand techniques I’ve ended up using on far bigger and messier problems.</p>
+
+  <h2>Starting Simple</h2>
+
+  <p>MNIST has 60,000 training and 10,000 test images of handwritten digits. They’re just 28x28 pixels, small enough to train quickly, but just tricky enough that you need more than brute force to get good results.</p>
+
+  <p>The first time I trained a model on it, I used a basic fully-connected network. Nothing fancy. It got me around 95% accuracy, which felt decent… until I realized that was kind of the floor for this dataset.</p>
+
+  <h2>Convolutions Make the Difference</h2>
+
+  <p>After hitting that wall, I switched to a Convolutional Neural Network (CNN). Just a couple of conv layers and some max pooling, and boom, accuracy jumped past 98%.</p>
+
+  <p>That was my first real “aha!” moment: CNNs are a game-changer for image data. They capture local patterns and spatial hierarchies way better than a flat network can.</p>
+
+  <p>Even though I was just classifying digits, the same ideas apply when you’re working with faces, traffic signs, or medical scans.</p>
+
+  <h2>Augmentation Isn’t Optional</h2>
+
+  <p>It turns out even good models can overfit. MNIST is clean, but the model still started memorizing strokes and shapes too closely.</p>
+
+  <p>So I added some basic data augmentation, a few degrees of rotation, a bit of translation. The model suddenly got better at handling weird handwriting. It wasn’t just memorizing, it was generalizing.</p>
+
+  <p>Lesson learned: in the real world, nothing is as tidy as MNIST. Augmenting your data is almost always a win.</p>
+
+  <h2>Dropout: A Quiet Hero</h2>
+
+  <p>As I built deeper networks, I started seeing signs of overfitting again. Validation accuracy would stall, or even drop while training loss kept going down.</p>
+
+  <p>Adding dropout layers fixed that. It’s such a simple idea, randomly drop some neurons during training, but it forces the network to learn more robust patterns. It felt like tightening bolts on a wobbly machine.</p>
+
+  <h2>Learning Rate Scheduling: Worth It</h2>
+
+  <p>I’d always used a fixed learning rate out of habit. But once I added a scheduler to gradually reduce it over time, I noticed the training became smoother and more consistent. The final accuracy ticked up too.</p>
+
+  <p>It’s a small touch, but it helped the model settle into a good place rather than bounce around near the end.</p>
+
+  <h2>What Stuck with Me</h2>
+
+  <p>Here’s a quick recap of the techniques I tried and why they mattered, not just for MNIST, but for real-world stuff too:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Technique</th>
+        <th>Why It Helped</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>CNNs</strong></td>
+        <td>Captured spatial features and patterns in images better than dense layers</td>
+      </tr>
+      <tr>
+        <td><strong>Data Augmentation</strong></td>
+        <td>Simulated real-world variability in handwriting styles</td>
+      </tr>
+      <tr>
+        <td><strong>Dropout</strong></td>
+        <td>Helped prevent overfitting and improved generalization</td>
+      </tr>
+      <tr>
+        <td><strong>Learning Rate Scheduling</strong></td>
+        <td>Smoothed out training and led to slightly better final accuracy</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Wrapping Up</h2>
+
+  <p>So yeah, MNIST might not be flashy, but I’ve learned a lot from it. It gave me a safe space to tinker, test ideas, and build confidence. And surprisingly, many of those ideas carried over into much larger projects.</p>
+
+  <p>If you’re just getting started, or even if you’re experienced and want a quick playground to try something new, MNIST still holds up. There’s a lot you can learn from small data.</p>
+
+</body>
+</html>
