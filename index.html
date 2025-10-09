@@ -33,6 +33,45 @@
       --highlight-background: #E6F3F4;
     }
 
+    body.dark-theme {
+      --primary-color: #00A1A7;
+      --secondary-color: #E5E7EB;
+      --background-color: #181A20;
+      --card-background: #232946;
+      --footer-background: #181A20;
+      --link-hover: #4DB8C0;
+      --highlight-background: #232946;
+      color: var(--secondary-color);
+      background-color: var(--background-color);
+    }
+
+    body.dark-theme h2,
+    body.dark-theme header h1 {
+      color: #4DB8C0;
+    }
+
+    body.dark-theme .project-card,
+    body.dark-theme .challenge-card {
+      background: linear-gradient(180deg, #232946, #232946 80%, #181A20);
+      border-left: 4px solid #00A1A7;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    body.dark-theme nav {
+      background: linear-gradient(90deg, #232946, #181A20);
+    }
+
+    body.dark-theme .cv-button {
+      background-color: #00A1A7;
+      color: #E5E7EB;
+    }
+
+    body.dark-theme .cv-button:hover {
+      background-color: #4DB8C0;
+      color: #232946;
+    }
+    
+
     body {
       margin: 0;
       font-family: 'Inter', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -310,6 +349,9 @@
       <li><a href="#resume">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button id="theme-toggle" class="btn btn-outline-light" style="position:absolute;top:1rem;right:2rem;z-index:1100;">
+      <i class="bi bi-moon"></i>
+    </button>
   </nav>
 
   <header>
@@ -471,6 +513,17 @@
     AOS.init({
       once: true,
       duration: 600
+    });
+
+    // Dark theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', function() {
+      document.body.classList.toggle('dark-theme');
+      if(document.body.classList.contains('dark-theme')) {
+        themeToggle.innerHTML = '<i class="bi bi-brightness-high"></i>';
+      } else {
+        themeToggle.innerHTML = '<i class="bi bi-moon"></i>';
+      }
     });
   </script>
 </body>
